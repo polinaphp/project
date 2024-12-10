@@ -1,9 +1,7 @@
 <?php
 /** @var PDO $pdo */
 $pdo = require $_SERVER['DOCUMENT_ROOT'] . '/db.php';
-$products = $pdo->query('SELECT * FROM products')
-    ->fetchAll(PDO::FETCH_ASSOC);
-
+$products = $pdo->query('SELECT * FROM products')->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,12 +14,27 @@ $products = $pdo->query('SELECT * FROM products')
     <link rel='stylesheet' href='/style.css' />
 </head>
 <body>
+<style>
+    #btn1 {
+        margin: 5px;
+        border-radius: 20px;
+        background-color: antiquewhite;
+    }
+    body {
+        background-color: #e4c8d7;
+    }
+   input {
+       margin: 5px;
+       border-radius: 20px;
+       padding: 5px;
+   }
+</style>
 <h1>Добавить запись</h1>
 <form action="/products/actions/store.php" method="post">
-    <input type="text" name="name" id="name" placeholder="name">
-    <input type="text" name="price" id="price" placeholder="price">
-    <input type="text" name="article" id="article" placeholder="article">
-    <input type="submit" name="Отправить" id="btn1">
+    <input type="text" name="name" id="name" placeholder="name"><br>
+    <input type="text" name="price" id="price" placeholder="price"><br>
+    <input type="text" name="article" id="article" placeholder="article"><br>
+ <input type="submit" name="Отправить" id="btn3">
 </form>
 </body>
 </html>

@@ -1,12 +1,8 @@
 <?php
 /** @var PDO $pdo */
 $pdo = require $_SERVER['DOCUMENT_ROOT'] . '/db.php';
-
 $id= $_GET['id'];
-$products = $pdo->query('SELECT * FROM products WHERE id= ' .$id)
-    ->fetch(PDO::FETCH_ASSOC);
-
-?>
+$products = $pdo->query('SELECT * FROM products WHERE id= ' .$id)->fetch(PDO::FETCH_ASSOC);  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -17,6 +13,20 @@ $products = $pdo->query('SELECT * FROM products WHERE id= ' .$id)
     <title>Document</title>
 </head>
 <body>
+<style>
+    button {
+        margin: 5px;
+        border-radius: 20px;
+        background-color: antiquewhite;
+    }
+    body {
+        background-color: #e4c8d7;
+    }
+    input {
+        border-radius: 20px;
+        padding: 5px;
+    }
+</style>
 <form action="/products/actions/update.php" method="post">
     <input type="hidden" name="id" value="<?=$products['id'] ?>">
     <p>Название:</p>
@@ -24,8 +34,7 @@ $products = $pdo->query('SELECT * FROM products WHERE id= ' .$id)
     <p>Цена:</p>
     <input name="price" type="text" value="<?=$products['price'] ?>">
     <p>Артикул:</p>
-    <input name="article" type="text" value="<?=$products['article'] ?>">
-    <br>
+    <input name="article" type="text" value="<?=$products['article'] ?>"><br>
     <button>Сохранить</button>
 </form>
 </body>

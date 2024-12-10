@@ -28,15 +28,12 @@ $products = $pdo->query('SELECT * FROM products')
         border: 2px solid black;
     }
 </style>
-<p></p>
-<h1>Товары</h1>
+<h1>Список товаров</h1>
 <table>
     <thead>
     <tr>
         <td>№</td>
         <td>Name</td>
-        <td>Price</td>
-        <td>Article</td>
     </tr>
     </thead>
     <tbody>
@@ -44,17 +41,9 @@ $products = $pdo->query('SELECT * FROM products')
         <tr>
             <td><?=$product['id']?></td>
             <td><?=$product['name']?></td>
-            <td><?=$product['price']?></td>
-            <td><?=$product['article']?></td>
-            <td><a href="/admissions?id=<?=$product['id']?>">Информация о поступлении</a></td>
-            <td class="r"><a href="/products/edit.php?id=<?=$product['id']?>"><button>Редактировать</button></a></td>
-            <td class="r"><a href="/products/actions/delete.php?id=<?=$product['id']?>"><button id="delete">Удалить</button></a></td>
         </tr>
     <?php endforeach;?>
     </tbody>
-</table>
-<p></p>
-<a href="/products/create.php"><button>Добавить</button></a>
 </table>
 <br>
 <a href="/index.php"><button>На главную</button></a>

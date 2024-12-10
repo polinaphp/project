@@ -1,11 +1,7 @@
 <?php
 /** @var PDO $pdo */
 $pdo = require $_SERVER['DOCUMENT_ROOT'] . '/db.php';
-$id = $_GET['id'];
-$admissions = $pdo->query('SELECT admissions.*, products.name AS product
-FROM admissions
-JOIN products ON admissions.product_id = products.id 
-WHERE admissions.product_id =' . $id)
+$admissions = $pdo->query('SELECT *FROM admissions' )
     ->fetchAll(PDO::FETCH_ASSOC);
 $product = $pdo->query('SELECT * FROM products')
     ->fetchAll(PDO::FETCH_ASSOC);
@@ -25,14 +21,14 @@ $product = $pdo->query('SELECT * FROM products')
             margin: 5px;
             border-radius: 20px;
             background-color: antiquewhite;
-             }
+              }
         body {
             background-color: #e4c8d7;
              }
         table, th, td {
             border-collapse: collapse;
             border: 2px solid black;
-                       }
+                      }
 </style>
 <p></p>
 <h1>Поступление</h1>
@@ -60,8 +56,7 @@ $product = $pdo->query('SELECT * FROM products')
 <a href="/admission/create.php"><button>Добавить</button></a>
 </table>
 <br>
-<a href="/products"><button>Назад</button></a>
-<br>
-<a href="/index.php"><button>На главную</button></a>
+<a href="/list.php"><button>Список товаров</button></a><br>
+<a href="/products"><button>Таблица товаров</button></a>
 </body>
 </html>

@@ -1,12 +1,8 @@
 <?php
 /** @var PDO $pdo */
 $pdo = require $_SERVER['DOCUMENT_ROOT'] . '/db.php';
-$admissions = $pdo->query('SELECT * FROM admissions')
-    ->fetchAll(PDO::FETCH_ASSOC);
-$products = $pdo->query('SELECT * FROM products')
-    ->fetchAll(PDO::FETCH_ASSOC);
-
-?>
+$admissions = $pdo->query('SELECT * FROM admissions')->fetchAll(PDO::FETCH_ASSOC);
+$products = $pdo->query('SELECT * FROM products')->fetchAll(PDO::FETCH_ASSOC);  ?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,8 +14,22 @@ $products = $pdo->query('SELECT * FROM products')
     <link rel='stylesheet' href='/style.css' />
 </head>
 <body>
+<style>
+    #btn2 {
+        margin: 5px;
+        border-radius: 20px;
+        background-color: antiquewhite;
+          }
+    body {
+        background-color: #e4c8d7;
+         }
+    input {
+        border-radius: 20px;
+        padding: 5px;
+          }
+</style>
 <h1>Добавить запись</h1>
-<form action="/admissions/actions/store.php" method="post">
+<form action="/admission/actions/store.php" method="post">
     <input type="hidden" name="id" id="id">
     <p>Quantity:</p>
     <input type="text" name="quantity" id="quantity" placeholder="quantity">
@@ -30,7 +40,7 @@ $products = $pdo->query('SELECT * FROM products')
         <?php endforeach; ?>
     </select>
     <p>Date:</p>
-    <input type="text" name="date" id="date" placeholder="date">
+    <input type="date" name="date" id="date" placeholder="date"><br>
     <input type="submit" name="Отправить" id="btn2">
 </form>
 </body>
