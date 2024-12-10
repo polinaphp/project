@@ -30,12 +30,12 @@ $products = $pdo->query('SELECT * FROM products WHERE id= ' .$id)->fetch(PDO::FE
 <form action="/products/actions/update.php" method="post">
     <input type="hidden" name="id" value="<?=$products['id'] ?>">
     <p>Название:</p>
-    <input name="name" type="text" value="<?=$products['name'] ?>">
+    <input name="name" id="name2" type="text" value="<?=$products['name'] ?>">
     <p>Цена:</p>
     <input name="price" type="text" value="<?=$products['price'] ?>">
     <p>Артикул:</p>
     <input name="article" type="text" value="<?=$products['article'] ?>"><br>
-    <button>Сохранить</button>
+    <button id="btn11">Сохранить</button>
 </form>
 </body>
 </html>

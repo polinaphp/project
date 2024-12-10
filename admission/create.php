@@ -34,9 +34,9 @@ $products = $pdo->query('SELECT * FROM products')->fetchAll(PDO::FETCH_ASSOC);  
     <p>Quantity:</p>
     <input type="text" name="quantity" id="quantity" placeholder="quantity">
     <p>Product:</p>
-    <select name="product">
+    <select name="product" id="product" >
         <?php foreach($products as $product):?>
-            <option value="<?=$product['id']?>"><?=$product['name']?></option>
+            <option id="product" value="<?=$product['id']?>"><?=$product['name']?></option>
         <?php endforeach; ?>
     </select>
     <p>Date:</p>

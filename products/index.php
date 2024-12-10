@@ -46,8 +46,8 @@ $products = $pdo->query('SELECT * FROM products')
             <td><?=$product['name']?></td>
             <td><?=$product['price']?></td>
             <td><?=$product['article']?></td>
-            <td><a href="/admissions?id=<?=$product['id']?>">Информация о поступлении</a></td>
-            <td class="r"><a href="/products/edit.php?id=<?=$product['id']?>"><button>Редактировать</button></a></td>
+            <td><a href="/admissions?id=<?=$product['id']?>"><button id="inf">Информация о поступлении</button></a></td>
+            <td class="r"><a href="/products/edit.php?id=<?=$product['id']?>"><button id="rr">Редактировать</button></a></td>
             <td class="r"><a href="/products/actions/delete.php?id=<?=$product['id']?>"><button id="delete">Удалить</button></a></td>
         </tr>
     <?php endforeach;?>
